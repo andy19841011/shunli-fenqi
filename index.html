@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -253,41 +254,43 @@ function copyGoldPriceLink() {
       .catch(() => alert("複製失敗，請手動複製網址"));
   }
 
- const RSS_SOURCES = { 
-    hot: "https://udn.com/rssfeed/news/2",         // 熱門
-    focus: "https://www.cna.com.tw/rss.aspx?Type=2", // 焦點
-    latest: "https://udn.com/rssfeed/news/1"        // 即時
-  };
+  const RSS_SOURCES = {
+  hot: "https://news.ltn.com.tw/rss/all", // 自由時報熱門新聞
+  focus: "https://www.cna.com.tw/rss.aspx?Type=2", // 中央社焦點新聞
+  latest: "https://news.ltn.com.tw/rss/breakingnews" // 自由時報即時新聞
+};
 
-  async function fetchRSS(rssUrl) {
-    const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    const parser = new DOMParser();
-    return parser.parseFromString(data.contents, "application/xml");
-  }
+async function fetchRSS(rssUrl) {
+  const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  const parser = new DOMParser();
+  return parser.parseFromString(data.contents, "application/xml");
+}
 
-  async function loadNews(type = "hot") {
-    const container = document.getElementById("news-box");
-    container.innerHTML = "<p class='text-center text-gray-600 mb-4'>載入中...</p>";
-    try {
-      const xml = await fetchRSS(RSS_SOURCES[type]);
-      const items = xml.querySelectorAll("item");
-      let html = "<ul class='divide-y divide-gray-200'>";
-      items.forEach((item, index) => {
-        if (index < 5) {
-          const title = item.querySelector("title").textContent;
-          const link = item.querySelector("link").textContent;
-          html += `<li class='py-2'><a href="${link}" target="_blank" class="text-blue-600 hover:underline">${title}</a></li>`;
-        }
-      });
-      html += "</ul>";
-      container.innerHTML = html;
-    } catch (err) {
-      container.innerHTML = "<p class='text-center text-red-500'>新聞載入失敗，請稍後再試。</p>";
-    }
+async function loadNews(type = "hot") {
+  const container = document.getElementById("news-box");
+  container.innerHTML = "<p class='text-center text-gray-600 mb-4'>載入中...</p>";
+  try {
+    const xml = await fetchRSS(RSS_SOURCES[type]);
+    const items = xml.querySelectorAll("item");
+    let html = "<ul class='divide-y divide-gray-200'>";
+    items.forEach((item, index) => {
+      if (index < 5) {
+        const title = item.querySelector("title").textContent;
+        const link = item.querySelector("link").textContent;
+        html += `<li class='py-2'><a href="${link}" target="_blank" class="text-blue-600 hover:underline">${title}</a></li>`;
+      }
+    });
+    html += "</ul>";
+    container.innerHTML = html;
+  } catch (err) {
+    container.innerHTML = "<p class='text-center text-red-500'>新聞載入失敗，請稍後再試。</p>";
   }
-  loadNews("hot");
+}
+
+loadNews("hot");
+
 </script>
 </body>
 </html>
