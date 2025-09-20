@@ -253,7 +253,11 @@ function copyGoldPriceLink() {
       .catch(() => alert("複製失敗，請手動複製網址"));
   }
 
-  const RSS_SOURCES = { hot: "https://udn.com/rssfeed/news/2/6638?ch=news", focus: "https://www.cna.com.tw/rss.aspx?Type=0", latest: "https://udn.com/rssfeed/news/1" };
+ const RSS_SOURCES = { 
+    hot: "https://udn.com/rssfeed/news/2",         // 熱門
+    focus: "https://www.cna.com.tw/rss.aspx?Type=2", // 焦點
+    latest: "https://udn.com/rssfeed/news/1"        // 即時
+  };
 
   async function fetchRSS(rssUrl) {
     const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
@@ -284,6 +288,6 @@ function copyGoldPriceLink() {
     }
   }
   loadNews("hot");
-  </script>
+</script>
 </body>
 </html>
