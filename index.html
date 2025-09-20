@@ -227,7 +227,7 @@ function copyGoldPriceLink() {
       const html = await response.text();
       const prices = {
         date: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
-        selling: html.match(/黃金賣出牌價\s*(\d+)/)?.[1] || fallbackPrices.黃金條塊賣出,
+        黃金條塊回收: html.match(/黃金賣出牌價\s*(\d+)/)?.[1] || fallbackPrices.黃金條塊賣出,
         '黃金條塊回收': html.match(/黃金條塊\(4N\)回收價\s*(\d+)/)?.[1] || fallbackPrices['黃金條塊回收'],
         '飾金回收': html.match(/飾金回收價\s*(\d+)/)?.[1] || fallbackPrices['飾金回收'],
         '白金回收': html.match(/白金回收價\s*(\d+)/)?.[1] || fallbackPrices['白金回收'],
