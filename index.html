@@ -46,40 +46,131 @@
     </div>
   </section>
 
-  <!-- Gold Price Section -->
-  <section class="bg-gray-100 py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">最新黃金牌價</h2>
-      <p class="text-center mb-8 text-gray-600">即時掌握黃金收購行情，透明報價、安心交易。</p>
+ <!-- Gold Price Section -->
+<section class="bg-gray-100 py-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">最新黃金牌價</h2>
+    <p class="text-center mb-8 text-gray-600">即時掌握黃金收購行情，透明報價、安心交易。</p>
 
-      <div id="gold-prices" class="bg-white p-6 rounded-2xl shadow-md overflow-x-auto">
-        <p class="text-center text-gray-600 mb-4">載入中...</p>
-      </div>
-
-      <!-- 分享功能 -->
-      <div class="flex justify-center gap-4 mt-6">
-        <a href="https://social-plugins.line.me/lineit/share?url=https://yourdomain.com"
-           target="_blank"
-           class="px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition shadow">
-           分享到 LINE
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com"
-           target="_blank"
-           class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow">
-           分享到 FB
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=最新黃金收購行情"
-           target="_blank"
-           class="px-4 py-2 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition shadow">
-           分享到 Twitter
-        </a>
-        <button onclick="copyGoldPriceLink()"
-           class="px-4 py-2 rounded-full bg-gray-600 text-white hover:bg-gray-700 transition shadow">
-           複製連結
-        </button>
-      </div>
+    <div id="gold-prices" class="bg-white p-6 rounded-2xl shadow-md overflow-x-auto">
+      <p class="text-center text-gray-600 mb-4">載入中...</p>
     </div>
-  </section>
+
+    <!-- 分享功能 -->
+    <div class="flex justify-center gap-4 mt-6">
+      <a id="share-line"
+         href="#"
+         target="_blank"
+         class="px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition shadow">
+         分享到 LINE
+      </a>
+
+      <button id="share-fb-btn"
+         class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow">
+         分享到 FB
+      </button>
+
+      <a id="share-twitter"
+         href="#"
+         target="_blank"
+         class="px-4 py-2 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition shadow">
+         分享到 Twitter
+      </a>
+
+      <button onclick="copyGoldPriceLink()"
+         class="px-4 py-2 rounded-full bg-gray-600 text-white hover:bg-gray-700 transition shadow">
+         複製連結
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+const fallbackPrices = {
+  date: "2025.9.19 11:00",
+  selling: "13410",
+  "4N回收": "13080",
+  "飾金回收": "12960",
+  "白金回收": "4500",
+  "白銀條塊回收": "127",
+  "22K": "10335",
+  "18K": "7145",
+  "14K": "5104",
+  "10K": "4083"
+};
+
+// 用 proxy 避免 CORS
+async function fetchGoldPrices() {
+  const container = document.getElementById('gold-prices');
+  try {
+    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://www.gck99.com.tw/index.php");
+    const resp = await fetch(proxyUrl);
+    const data = await resp.json();
+    const html = data.contents;
+
+    const prices = {
+      date: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
+      selling: html.match(/黃金賣出牌價\\s*(\\d+)/)?.[1] || fallbackPrices.selling,
+      '4N回收': html.match(/黃金條塊\\(4N\\)回收價\\s*(\\d+)/)?.[1] || fallbackPrices["4N回收"],
+      '飾金回收': html.match(/飾金回收價\\s*(\\d+)/)?.[1] || fallbackPrices["飾金回收"],
+      '白金回收': html.match(/白金回收價\\s*(\\d+)/)?.[1] || fallbackPrices["白金回收"],
+      '白銀條塊回收': html.match(/999\\+白銀條塊回收價\\s*(\\d+)/)?.[1] || fallbackPrices["白銀條塊回收"],
+      '22K': html.match(/22K\\s*\\( 91% \\)\\s*(\\d+)/)?.[1] || fallbackPrices["22K"],
+      '18K': html.match(/18K\\s*\\( 75% \\)\\s*(\\d+)/)?.[1] || fallbackPrices["18K"],
+      '14K': html.match(/14K\\s*\\( 58% \\)\\s*(\\d+)/)?.[1] || fallbackPrices["14K"],
+      '10K': html.match(/10K\\s*\\( 41% \\)\\s*(\\d+)/)?.[1] || fallbackPrices["10K"]
+    };
+
+    // 生表格
+    let tableHTML = `<div class='overflow-x-auto'><table class='table-auto w-full border border-gray-200 text-sm text-gray-700'><thead class='bg-yellow-100'><tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr></thead><tbody>`;
+    Object.entries(prices).filter(([k]) => k !== 'date').forEach(([key, val]) => {
+      tableHTML += `<tr class='hover:bg-gray-50'><td class='px-4 py-2 border text-center'>${key}</td><td class='px-4 py-2 border text-center font-medium'>${val}</td></tr>`;
+    });
+    tableHTML += `</tbody></table></div><p class='text-center text-xs text-gray-500 mt-2'>更新時間：${prices.date}</p>`;
+    container.innerHTML = tableHTML;
+
+    // 更新分享連結動態文字
+    const shareFbBtn = document.getElementById('share-fb-btn');
+    shareFbBtn.onclick = () => {
+      const quoteText = `最新黃金賣出價：${prices.selling} 元/錢`;
+      const shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" 
+                       + encodeURIComponent("https://andy19841011.github.io/shunli-fenqi/")
+                       + "&quote=" + encodeURIComponent(quoteText);
+      window.open(shareUrl, "_blank");
+    };
+
+    // 也更新 LINE / Twitter 等，如果需要帶動態文字
+    document.getElementById('share-line').href =
+      "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent("https://andy19841011.github.io/shunli-fenqi/")
+      + "&text=" + encodeURIComponent(`最新黃金賣出價：${prices.selling} 元/錢`);
+
+    document.getElementById('share-twitter').href =
+      "https://twitter.com/intent/tweet?url=" + encodeURIComponent("https://andy19841011.github.io/shunli-fenqi/")
+      + "&text=" + encodeURIComponent(`最新黃金賣出價：${prices.selling} 元/錢`);
+
+  } catch (error) {
+    console.error("無法取得金價：", error);
+    // 顯示 fallback
+    let tableHTML = `<div class='overflow-x-auto'><table class='table-auto w-full border border-gray-200 text-sm text-gray-700'><thead class='bg-yellow-100'><tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr></thead><tbody>`;
+    Object.entries(fallbackPrices).filter(([k]) => k !== 'date').forEach(([key, val]) => {
+      tableHTML += `<tr class='hover:bg-gray-50'><td class='px-4 py-2 border text-center'>${key}</td><td class='px-4 py-2 border text-center font-medium'>${val}</td></tr>`;
+    });
+    tableHTML += `</tbody></table></div><p class='text-center text-xs text-gray-500 mt-2'>更新時間：${fallbackPrices.date}</p>`;
+    container.innerHTML = tableHTML;
+  }
+}
+
+// 啟動
+fetchGoldPrices();
+// 若需要定時自動更新，可以加這樣
+setInterval(fetchGoldPrices, 30 * 60 * 1000);  // 每 30 分鐘更新一次
+
+function copyGoldPriceLink() {
+  navigator.clipboard.writeText("https://andy19841011.github.io/shunli-fenqi/")
+    .then(() => alert("已複製連結，可以貼到任何地方！"))
+    .catch(() => alert("複製失敗，請手動複製網址"));
+}
+</script>
 
   <!-- News Section -->
   <section class="bg-gradient-to-b from-gray-100 to-gray-200 py-16">
