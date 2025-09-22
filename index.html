@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -8,7 +7,7 @@
   <meta property="og:title" content="順利分期 | 高雄在地資金週轉專家">
   <meta property="og:description" content="一站式資金週轉服務，立即聯絡順利分期。">
   <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
-  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:url" content="https://andy19841011.github.io/shunli-fenqi/">
   <title>順利分期 | 高雄在地資金週轉專家</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -47,96 +46,29 @@
     </div>
   </section>
 
-<!-- Gold Price Section -->
-<section class="bg-gray-100 py-16">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">最新黃金牌價</h2>
-    <p class="text-center mb-8 text-gray-600">即時掌握黃金收購行情，透明報價、安心交易。</p>
+  <!-- Gold Price Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">最新黃金牌價</h2>
+      <p class="text-center mb-8 text-gray-600">即時掌握黃金收購行情，透明報價、安心交易。</p>
 
-    <div id="gold-prices" class="bg-white p-6 rounded-2xl shadow-md overflow-x-auto">
-      <p class="text-center text-gray-600 mb-4">載入中...</p>
+      <div id="gold-prices" class="bg-white p-6 rounded-2xl shadow-md overflow-x-auto">
+        <p class="text-center text-gray-600 mb-4">載入中...</p>
+      </div>
+
+      <!-- 分享功能 -->
+      <div class="flex justify-center gap-4 mt-6">
+        <a id="share-line" target="_blank"
+           class="px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition shadow">分享到 LINE</a>
+        <a id="share-fb" target="_blank"
+           class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow">分享到 FB</a>
+        <a id="share-twitter" target="_blank"
+           class="px-4 py-2 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition shadow">分享到 Twitter</a>
+        <button onclick="copyGoldPriceLink()"
+           class="px-4 py-2 rounded-full bg-gray-600 text-white hover:bg-gray-700 transition shadow">複製連結</button>
+      </div>
     </div>
-
-    <!-- 分享功能 -->
-    <div class="flex justify-center gap-4 mt-6">
-      <a href="https://social-plugins.line.me/lineit/share?url=https://andy19841011.github.io/shunli-fenqi/"
-         target="_blank"
-         class="px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition shadow">
-         分享到 LINE
-      </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://andy19841011.github.io/shunli-fenqi/"
-         target="_blank"
-         class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow">
-         分享到 FB
-      </a>
-      <a href="https://twitter.com/intent/tweet?url=https://andy19841011.github.io/shunli-fenqi/&text=最新黃金收購行情"
-         target="_blank"
-         class="px-4 py-2 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition shadow">
-         分享到 Twitter
-      </a>
-      <button onclick="copyGoldPriceLink()"
-         class="px-4 py-2 rounded-full bg-gray-600 text-white hover:bg-gray-700 transition shadow">
-         複製連結
-      </button>
-    </div>
-  </div>
-</section>
-
-<script>
-async function fetchGoldPrices() {
-  const container = document.getElementById('gold-prices');
-  try {
-    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://price.tw9999.tw/");
-    const resp = await fetch(proxyUrl);
-    const data = await resp.json();
-    const html = data.contents;
-
-    // 抓取黃金條塊買進 / 賣出
-    const matchBuy = html.match(/黃金條塊[\s\S]*?<td[^>]*>(\d+)<\/td>/);
-    const matchSell = html.match(/黃金條塊[\s\S]*?<td[^>]*>\d+<\/td>\s*<td[^>]*>(\d+)<\/td>/);
-
-    const prices = {
-      date: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
-      "黃金條塊買進": matchBuy ? matchBuy[1] : "-",
-      "黃金條塊賣出": matchSell ? matchSell[1] : "-"
-    };
-
-    let tableHTML = `<div class='overflow-x-auto'>
-      <table class='table-auto w-full border border-gray-200 text-sm text-gray-700'>
-        <thead class='bg-yellow-100'>
-          <tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr>
-        </thead>
-        <tbody>
-          ${Object.entries(prices).filter(([k]) => k !== 'date').map(([key,val]) =>
-            `<tr class='hover:bg-gray-50'>
-              <td class='px-4 py-2 border text-center'>${key}</td>
-              <td class='px-4 py-2 border text-center font-medium'>${val}</td>
-            </tr>`
-          ).join('')}
-        </tbody>
-      </table>
-    </div>
-    <p class='text-center text-xs text-gray-500 mt-2'>更新時間：${prices.date}</p>`;
-    container.innerHTML = tableHTML;
-
-  } catch (error) {
-    console.error("金價載入失敗：", error);
-    container.innerHTML = `<p class='text-center text-red-500'>金價載入失敗，請稍後再試。</p>`;
-  }
-}
-
-// 初始化
-fetchGoldPrices();
-// 每 30 分鐘自動更新
-setInterval(fetchGoldPrices, 30 * 60 * 1000);
-
-function copyGoldPriceLink() {
-  navigator.clipboard.writeText("https://andy19841011.github.io/shunli-fenqi/")
-    .then(() => alert("已複製連結，可以貼到任何地方！"))
-    .catch(() => alert("複製失敗，請手動複製網址"));
-}
-</script>
-
+  </section>
 
   <!-- News Section -->
   <section class="bg-gradient-to-b from-gray-100 to-gray-200 py-16">
@@ -168,7 +100,8 @@ function copyGoldPriceLink() {
           <p class="mb-2"><strong>📍 地址：</strong>高雄市鳳山區保泰路129號</p>
         </div>
         <div class="md:w-1/2">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.347083496693!2d120.3576983154021!3d22.62850898516014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1b8e6d7e7e7b%3A0x7f1e0b7f8e9d0a1!2sKaohsiung%20City%2C%20Fengshan%20District%2C%20129!5e0!3m2!1szh-TW!2stw!4v1634567890123!5m2!1szh-TW!2stw" class="w-full h-96 rounded-2xl shadow-md" allowfullscreen="" loading="lazy" title="順利分期地圖"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.347083496693!2d120.3576983154021!3d22.62850898516014"
+            class="w-full h-96 rounded-2xl shadow-md" allowfullscreen="" loading="lazy" title="順利分期地圖"></iframe>
         </div>
       </div>
     </div>
@@ -183,79 +116,90 @@ function copyGoldPriceLink() {
 
   <!-- Scripts -->
   <script>
-  const fallbackPrices = { date: "2025.9.19 11:00", 黃金條塊賣出: "13410", "黃金條塊回收": "13080", "飾金回收": "12960", "白金回收": "4500", "白銀條塊回收": "127", "22K": "10335", "18K": "7145", "14K": "5104", "10K": "4083" };
-
+  // 金價（TW9999）
   async function fetchGoldPrices() {
     const container = document.getElementById('gold-prices');
     try {
-      const response = await fetch('https://www.gck99.com.tw/index.php');
-      if (!response.ok) throw new Error('Network response was not ok');
-      const html = await response.text();
+      const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://price.tw9999.tw/");
+      const resp = await fetch(proxyUrl);
+      const data = await resp.json();
+      const html = data.contents;
+
+      const matchBuy = html.match(/黃金條塊[\\s\\S]*?<td[^>]*>(\\d+)<\\/td>/);
+      const matchSell = html.match(/黃金條塊[\\s\\S]*?<td[^>]*>\\d+<\\/td>\\s*<td[^>]*>(\\d+)<\\/td>/);
+
       const prices = {
         date: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
-        黃金條塊回收: html.match(/黃金賣出牌價\s*(\d+)/)?.[1] || fallbackPrices.黃金條塊賣出,
-        '黃金條塊回收': html.match(/黃金條塊\(4N\)回收價\s*(\d+)/)?.[1] || fallbackPrices['黃金條塊回收'],
-        '飾金回收': html.match(/飾金回收價\s*(\d+)/)?.[1] || fallbackPrices['飾金回收'],
-        '白金回收': html.match(/白金回收價\s*(\d+)/)?.[1] || fallbackPrices['白金回收'],
-        '白銀條塊回收': html.match(/999\+白銀條塊回收價\s*(\d+)/)?.[1] || fallbackPrices['白銀條塊回收'],
-        '22K': html.match(/22K\s*\( 91% \)\s*(\d+)/)?.[1] || fallbackPrices['22K'],
-        '18K': html.match(/18K\s*\( 75% \)\s*(\d+)/)?.[1] || fallbackPrices['18K'],
-        '14K': html.match(/14K\s*\( 58% \)\s*(\d+)/)?.[1] || fallbackPrices['14K'],
-        '10K': html.match(/10K\s*\( 41% \)\s*(\d+)/)?.[1] || fallbackPrices['10K']
+        "黃金條塊買進": matchBuy ? matchBuy[1] : "-",
+        "黃金條塊賣出": matchSell ? matchSell[1] : "-"
       };
-      let tableHTML = `<div class='overflow-x-auto'><table class='table-auto w-full border border-gray-200 text-sm text-gray-700'><thead class='bg-yellow-100'><tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr></thead><tbody>${Object.entries(prices).filter(([k]) => k !== 'date').map(([key,val]) => `<tr class='hover:bg-gray-50'><td class='px-4 py-2 border text-center'>${key}</td><td class='px-4 py-2 border text-center font-medium'>${val}</td></tr>`).join('')}</tbody></table></div><p class='text-center text-xs text-gray-500 mt-2'>更新時間：${prices.date}</p>`;
+
+      let tableHTML = `<div class='overflow-x-auto'><table class='table-auto w-full border border-gray-200 text-sm text-gray-700'><thead class='bg-yellow-100'><tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr></thead><tbody>`;
+      Object.entries(prices).filter(([k]) => k !== 'date').forEach(([key,val]) => {
+        tableHTML += `<tr class='hover:bg-gray-50'><td class='px-4 py-2 border text-center'>${key}</td><td class='px-4 py-2 border text-center font-medium'>${val}</td></tr>`;
+      });
+      tableHTML += `</tbody></table></div><p class='text-center text-xs text-gray-500 mt-2'>更新時間：${prices.date}</p>`;
       container.innerHTML = tableHTML;
+
+      // 更新分享連結
+      const text = `最新黃金條塊賣出價：${prices["黃金條塊賣出"]} 元/錢`;
+      document.getElementById("share-line").href =
+        "https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(location.href) + "&text=" + encodeURIComponent(text);
+      document.getElementById("share-fb").href =
+        "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(location.href) + "&quote=" + encodeURIComponent(text);
+      document.getElementById("share-twitter").href =
+        "https://twitter.com/intent/tweet?url=" + encodeURIComponent(location.href) + "&text=" + encodeURIComponent(text);
+
     } catch (error) {
-      let tableHTML = `<div class='overflow-x-auto'><table class='table-auto w-full border border-gray-200 text-sm text-gray-700'><thead class='bg-yellow-100'><tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr></thead><tbody>${Object.entries(fallbackPrices).filter(([k]) => k !== 'date').map(([key,val]) => `<tr class='hover:bg-gray-50'><td class='px-4 py-2 border text-center'>${key}</td><td class='px-4 py-2 border text-center font-medium'>${val}</td></tr>`).join('')}</tbody></table></div><p class='text-center text-xs text-gray-500 mt-2'>更新時間：${fallbackPrices.date}</p>`;
-      container.innerHTML = tableHTML;
+      console.error("金價載入失敗：", error);
+      container.innerHTML = `<p class='text-center text-red-500'>金價載入失敗，請稍後再試。</p>`;
     }
   }
   fetchGoldPrices();
-  setInterval(() => { const now = new Date(); if (now.getHours() === 11 && now.getMinutes() === 5) fetchGoldPrices(); }, 60000);
+  setInterval(fetchGoldPrices, 30 * 60 * 1000);
 
   function copyGoldPriceLink() {
-    navigator.clipboard.writeText("https://andy19841011.github.io/shunli-fenqi/")
+    navigator.clipboard.writeText(location.href)
       .then(() => alert("已複製連結，可以貼到任何地方！"))
       .catch(() => alert("複製失敗，請手動複製網址"));
   }
 
+  // 新聞 RSS
   const RSS_SOURCES = {
-  hot: "https://news.ltn.com.tw/rss/all", // 自由時報熱門新聞
-  focus: "https://www.cna.com.tw/rss.aspx?Type=2", // 中央社焦點新聞
-  latest: "https://news.ltn.com.tw/rss/breakingnews" // 自由時報即時新聞
-};
+    hot: "https://udn.com/rssfeed/news/2",
+    focus: "https://www.cna.com.tw/rss.aspx?Type=0",
+    latest: "https://udn.com/rssfeed/news/1"
+  };
 
-async function fetchRSS(rssUrl) {
-  const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
-  const response = await fetch(apiUrl);
-  const data = await response.json();
-  const parser = new DOMParser();
-  return parser.parseFromString(data.contents, "application/xml");
-}
-
-async function loadNews(type = "hot") {
-  const container = document.getElementById("news-box");
-  container.innerHTML = "<p class='text-center text-gray-600 mb-4'>載入中...</p>";
-  try {
-    const xml = await fetchRSS(RSS_SOURCES[type]);
-    const items = xml.querySelectorAll("item");
-    let html = "<ul class='divide-y divide-gray-200'>";
-    items.forEach((item, index) => {
-      if (index < 5) {
-        const title = item.querySelector("title").textContent;
-        const link = item.querySelector("link").textContent;
-        html += `<li class='py-2'><a href="${link}" target="_blank" class="text-blue-600 hover:underline">${title}</a></li>`;
-      }
-    });
-    html += "</ul>";
-    container.innerHTML = html;
-  } catch (err) {
-    container.innerHTML = "<p class='text-center text-red-500'>新聞載入失敗，請稍後再試。</p>";
+  async function fetchRSS(rssUrl) {
+    const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    const parser = new DOMParser();
+    return parser.parseFromString(data.contents, "application/xml");
   }
-}
 
-loadNews("hot");
-
-</script>
+  async function loadNews(type = "hot") {
+    const container = document.getElementById("news-box");
+    container.innerHTML = "<p class='text-center text-gray-600 mb-4'>載入中...</p>";
+    try {
+      const xml = await fetchRSS(RSS_SOURCES[type]);
+      const items = xml.querySelectorAll("item");
+      let html = "<ul class='divide-y divide-gray-200'>";
+      items.forEach((item, index) => {
+        if (index < 5) {
+          const title = item.querySelector("title").textContent;
+          const link = item.querySelector("link").textContent;
+          html += `<li class='py-2'><a href="${link}" target="_blank" class="text-blue-600 hover:underline">${title}</a></li>`;
+        }
+      });
+      html += "</ul>";
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = "<p class='text-center text-red-500'>新聞載入失敗，請稍後再試。</p>";
+    }
+  }
+  loadNews("hot");
+  </script>
 </body>
 </html>
