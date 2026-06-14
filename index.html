@@ -3,260 +3,702 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="高雄資金週轉首選｜順利分期提供無卡分期、黃金收購、房地貸款、汽機車分期等服務，免聯徵、快速撥款，誠信透明，立即申辦！">
-<meta name="keywords" content="高雄資金週轉, 無卡分期, 黃金收購, 房地貸款, 汽機車分期, 高雄貸款推薦, 快速撥款, 免聯徵貸款">
-  <meta name="description" content="順利分期提供高雄地區無卡分期、房屋土地貸款、黃金鑽石名錶收購、汽機車分期等服務，快速審核、誠信透明。">
-  <meta property="og:title" content="順利分期 | 高雄在地資金週轉專家">
-  <meta property="og:description" content="一站式資金週轉服務，立即聯絡順利分期。">
-  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
-  <meta property="og:url" content="https://andy19841011.github.io/shunli-fenqi/">
-  <title>順利分期 | 高雄在地資金週轉專家</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="順利分期提供無卡分期、房屋土地貸款、黃金鑽石名錶收購、汽機車分期等服務，重視效率、透明與安心。">
+  <title>順利分期 | 高雄資金週轉專家</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-soft: #fffaf2;
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: #ffffff;
+      --text: #1d2430;
+      --muted: #5f6b7a;
+      --line: rgba(29, 36, 48, 0.12);
+      --brand: #8e5b2d;
+      --brand-2: #c98d4d;
+      --brand-3: #2d4b5f;
+      --shadow: 0 20px 60px rgba(39, 29, 14, 0.14);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(201, 141, 77, 0.24), transparent 30%),
+        radial-gradient(circle at top right, rgba(45, 75, 95, 0.14), transparent 28%),
+        linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 250, 242, 0.72);
+      border-bottom: 1px solid rgba(29, 36, 48, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 10px 30px rgba(142, 91, 45, 0.28);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero {
+      padding: 52px 0 22px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-card, .panel, .feature, .stat, .step, .contact-card, .map-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 141, 77, 0.26), transparent 66%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(142, 91, 45, 0.1);
+      color: var(--brand);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.7rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      margin-top: 16px;
+      max-width: 12ch;
+    }
+
+    .lede {
+      margin-top: 18px;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn.primary {
+      color: white;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 14px 30px rgba(142, 91, 45, 0.24);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(29, 36, 48, 0.09);
+      color: var(--text);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel {
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: rgba(255, 250, 242, 0.78);
+    }
+
+    .panel h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+      color: var(--muted);
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(142, 91, 45, 0.12);
+      color: var(--brand);
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    .panel-highlight {
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(45, 75, 95, 0.96), rgba(142, 91, 45, 0.92)),
+        linear-gradient(135deg, #2d4b5f, #8e5b2d);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel-highlight::after {
+      content: "";
+      position: absolute;
+      inset: auto -70px -90px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .panel-highlight small {
+      display: inline-block;
+      margin-bottom: 10px;
+      opacity: 0.9;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .panel-highlight p {
+      color: rgba(255, 255, 255, 0.86);
+      margin-top: 10px;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      max-width: 54ch;
+      color: var(--muted);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature, .step, .contact-card, .map-card {
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .feature h3, .step h3 {
+      margin: 14px 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(142, 91, 45, 0.1);
+      color: var(--brand);
+      font-size: 1.2rem;
+    }
+
+    .feature p, .step p, .contact-card p, .contact-card li, .map-card p {
+      color: var(--muted);
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .story .feature {
+      min-height: 100%;
+    }
+
+    .quote {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-top: 12px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(45, 75, 95, 0.08);
+      color: var(--brand-3);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .contact-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-card li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .contact-card strong {
+      color: var(--text);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      border: 0;
+      border-radius: 18px;
+      margin-top: 16px;
+      filter: saturate(0.92) contrast(1.02);
+    }
+
+    footer {
+      padding: 22px 0 38px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .grid-4,
+      .grid-3,
+      .story,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      h1 { max-width: 100%; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 20px, var(--max)); }
+      .nav {
+        flex-direction: column;
+        align-items: start;
+      }
+      .hero { padding-top: 30px; }
+      .hero-card, .panel, .feature, .step, .contact-card, .map-card { border-radius: 22px; }
+      .hero-card, .panel-highlight, .panel { padding: 22px; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .nav-links { justify-content: flex-start; }
+      .btn { width: 100%; }
+      .hero-actions, .contact-actions { display: grid; }
+      .map-card iframe { min-height: 280px; }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-20 shadow-lg">
-    <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow">順利分期 | 高雄在地資金週轉專家</h1>
-      <p class="text-lg md:text-xl mb-8 opacity-90">無卡分期、房屋土地貸款、黃金鑽石名錶收購、汽機車分期，一站式服務，快速審核、誠信透明，助您輕鬆解決資金需求！</p>
-      <a href="#contact" class="bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 shadow-md transition">立即聯絡我們</a>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-mark">順</div>
+        <div>
+          <div>順利分期</div>
+          <small style="color: var(--muted); font-weight: 500;">高雄在地資金週轉</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">服務項目</a>
+        <a href="#advantages">合作優勢</a>
+        <a href="#process">辦理流程</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Services Section -->
-  <section class="py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">服務導覽</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-4">📱 無卡分期</h3>
-          <p class="text-gray-600 leading-relaxed">不需信用卡、不查聯徵，手機、家電、3C產品輕鬆分期，當日撥款，快速又安心。</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-4">🏠 房屋土地貸款</h3>
-          <p class="text-gray-600 leading-relaxed">自有房屋土地皆可申辦，免收入證明、免聯徵，高額資金快速到位，資金週轉無壓力。</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-4">💎 黃金鑽石名錶收購</h3>
-          <p class="text-gray-600 leading-relaxed">高價收購黃金、鑽石、名錶，現場鑑價、立即現金交易，誠信透明，保障您的資產價值。</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-4">🚗 汽機車分期</h3>
-          <p class="text-gray-600 leading-relaxed">汽車機車皆可辦理分期，免留車、不限車齡，新車中古車皆可申請，利率優惠、流程簡便。</p>
-        </div>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <article class="hero-card">
+          <span class="eyebrow">Fast approval / Transparent / Local service</span>
+          <h1>把資金問題，交給更有秩序的解法</h1>
+          <p class="lede">
+            提供無卡分期、房屋土地貸款、黃金鑽石名錶收購、汽機車分期等服務。
+            我們重視溝通效率、方案清楚、流程簡單，讓你可以更安心地往下一步走。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="tel:07-7712000">立即來電諮詢</a>
+            <a class="btn secondary" href="#contact">看聯絡方式</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="stat">
+              <strong>4 大服務</strong>
+              <span>分期、貸款、收購、車輛方案</span>
+            </div>
+            <div class="stat">
+              <strong>簡單流程</strong>
+              <span>少繞路，重點明確好理解</span>
+            </div>
+            <div class="stat">
+              <strong>高雄在地</strong>
+              <span>可以直接聯繫，溝通更即時</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="hero-aside">
+          <div class="panel-highlight">
+            <small>About</small>
+            <h2>不是把資訊塞滿，而是把重點說清楚</h2>
+            <p>這版把畫面改成更乾淨的單頁結構，先讓訪客快速看懂你能提供什麼，再把聯絡入口放到最明顯的位置。</p>
+          </div>
+          <div class="panel">
+            <h2>我們最在意的三件事</h2>
+            <ul class="checklist">
+              <li><span class="check">✓</span><span>說明清楚，不把流程包裝得太複雜。</span></li>
+              <li><span class="check">✓</span><span>重視速度與回覆，讓客戶少等待。</span></li>
+              <li><span class="check">✓</span><span>保留足夠彈性，依照需求安排方案。</span></li>
+            </ul>
+          </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Gold Price Section -->
-  <section class="bg-gray-100 py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">最新黃金牌價</h2>
-      <p class="text-center mb-8 text-gray-600">即時掌握黃金收購行情，透明報價、安心交易。</p>
-
-      <div id="gold-prices" class="bg-white p-6 rounded-2xl shadow-md overflow-x-auto">
-        <p class="text-center text-gray-600 mb-4">載入中...</p>
-      </div>
-
-      <!-- 分享功能 -->
-      <div class="flex justify-center gap-4 mt-6">
-        <a href="https://social-plugins.line.me/lineit/share?url=https://andy19841011.github.io/shunli-fenqi/"
-           target="_blank"
-           class="px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition shadow">
-           分享到 LINE
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andy19841011.github.io/shunli-fenqi/"
-           target="_blank"
-           class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow">
-           分享到 FB
-        </a>
-        <a href="https://twitter.com/intent/tweet?url=https://andy19841011.github.io/shunli-fenqi/&text=最新黃金收購行情"
-           target="_blank"
-           class="px-4 py-2 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition shadow">
-           分享到 Twitter
-        </a>
-        <button onclick="copyGoldPriceLink()"
-           class="px-4 py-2 rounded-full bg-gray-600 text-white hover:bg-gray-700 transition shadow">
-           複製連結
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- News Section -->
-  <section class="bg-gradient-to-b from-gray-100 to-gray-200 py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">新聞快訊</h2>
-      <p class="text-center mb-8 text-gray-600">熱門、焦點、即時新聞隨你切換，一手掌握最新資訊。</p>
-
-      <div class="flex justify-center gap-4 mb-6">
-        <button onclick="loadNews('hot')" class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow">🔥 熱門</button>
-        <button onclick="loadNews('focus')" class="px-4 py-2 rounded-full bg-green-600 text-white hover:bg-green-700 transition shadow">🎯 焦點</button>
-        <button onclick="loadNews('latest')" class="px-4 py-2 rounded-full bg-yellow-500 text-white hover:bg-yellow-600 transition shadow">🕒 即時</button>
-      </div>
-
-      <div id="news-box" class="bg-white p-6 rounded-2xl shadow-md">
-        <p class="text-center text-gray-600 mb-4">載入中...</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">聯絡我們</h2>
-      <div class="flex flex-col md:flex-row gap-8">
-        <div class="md:w-1/2 bg-gray-50 p-6 rounded-2xl shadow-md">
-          <p class="text-lg mb-4">有任何資金需求，歡迎立即聯絡我們！</p>
-          <p class="mb-2"><strong>☎️ 電話：</strong><a href="tel:07-7712000" class="text-blue-600 hover:underline">07-7712000</a></p>
-          <p class="mb-2"><strong>📱 LINE：</strong><a href="https://lin.ee/kFbT6Zs"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="馬上聯繫" height="36"></a></p>
-          <p class="mb-2"><strong>📍 地址：</strong>高雄市鳳山區保泰路129號</p>
+    <section id="services" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>服務項目</h2>
+            <p>把原本散落的內容整理成更容易掃描的四個服務卡片，讓重點一眼看懂。</p>
+          </div>
         </div>
-        <div class="md:w-1/2">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.347083496693!2d120.3576983154021!3d22.62850898516014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1b8e6d7e7e7b%3A0x7f1e0b7f8e9d0a1!2sKaohsiung%20City%2C%20Fengshan%20District%2C%20129!5e0!3m2!1szh-TW!2stw!4v1634567890123!5m2!1szh-TW!2stw" class="w-full h-96 rounded-2xl shadow-md" allowfullscreen="" loading="lazy" title="順利分期地圖"></iframe>
+
+        <div class="grid-4">
+          <article class="feature">
+            <div class="icon">📱</div>
+            <h3>無卡分期</h3>
+            <p>不一定需要信用卡，也能評估分期需求，適合想先把資金壓力降下來的人。</p>
+          </article>
+          <article class="feature">
+            <div class="icon">🏠</div>
+            <h3>房屋土地貸款</h3>
+            <p>依照不動產條件規劃適合的資金安排，說明方式盡量直白，方便快速理解。</p>
+          </article>
+          <article class="feature">
+            <div class="icon">💎</div>
+            <h3>黃金鑽石名錶收購</h3>
+            <p>針對黃金、鑽石、名錶提供收購與估價服務，重視現場評估與透明報價。</p>
+          </article>
+          <article class="feature">
+            <div class="icon">🚗</div>
+            <h3>汽機車分期</h3>
+            <p>新車、中古車或機車分期都可討論，流程更彈性，協助你找到合適方式。</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white py-6">
-    <div class="container mx-auto px-6 text-center">
-      <p class="opacity-80">&copy; 2025 順利分期. All Rights Reserved.</p>
+    <section id="advantages" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>合作優勢</h2>
+            <p>把「可信任」做成畫面的一部分，而不是只放在一句口號裡。</p>
+          </div>
+        </div>
+
+        <div class="story">
+          <article class="feature">
+            <div class="icon">◎</div>
+            <h3>更像一個可靠的入口</h3>
+            <p class="quote">
+              這份設計把網站從「資訊很多」改成「重點很清楚」的狀態。
+              首先讓人知道你做什麼，再讓他很容易找到下一步。
+            </p>
+            <div class="badge-row">
+              <span class="badge">資訊清楚</span>
+              <span class="badge">版面乾淨</span>
+              <span class="badge">行動裝置友善</span>
+              <span class="badge">聯絡入口明顯</span>
+            </div>
+          </article>
+
+          <div class="grid-3">
+            <article class="step">
+              <div class="icon">1</div>
+              <h3>先說需求</h3>
+              <p>用最短的方式描述你的狀況，讓對話從第一句就對焦。</p>
+            </article>
+            <article class="step">
+              <div class="icon">2</div>
+              <h3>再看條件</h3>
+              <p>根據狀況協助評估，說明方式直接，減少來回猜測。</p>
+            </article>
+            <article class="step">
+              <div class="icon">3</div>
+              <h3>安排下一步</h3>
+              <p>確認方式後，再決定最適合你的處理流程與時間。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>辦理流程</h2>
+            <p>簡化成三步，讓使用者一看就知道怎麼開始，不需要先讀完整頁才懂。</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="step">
+            <div class="icon">A</div>
+            <h3>聯絡諮詢</h3>
+            <p>先用電話或 LINE 聯絡，說明你目前的需求與想了解的方向。</p>
+          </article>
+          <article class="step">
+            <div class="icon">B</div>
+            <h3>資料評估</h3>
+            <p>依照你提供的資訊，協助判斷可行方案與適合的安排。</p>
+          </article>
+          <article class="step">
+            <div class="icon">C</div>
+            <h3>完成辦理</h3>
+            <p>確認內容後進入下一步，讓流程保持清楚、快速、好溝通。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>聯絡我們</h2>
+            <p>把聯絡資訊放在最清楚的位置，讓想詢問的人可以直接找到入口。</p>
+          </div>
+        </div>
+
+        <div class="contact-layout">
+          <article class="contact-card">
+            <p style="font-size: 1.1rem; color: var(--text); font-weight: 700;">如果你想先聊聊，直接從這裡開始就可以。</p>
+            <ul>
+              <li><span class="check">☎</span><span><strong>電話：</strong><a href="tel:07-7712000">07-7712000</a></span></li>
+              <li><span class="check">◎</span><span><strong>LINE：</strong><a href="https://lin.ee/kFbT6Zs" target="_blank" rel="noreferrer">https://lin.ee/kFbT6Zs</a></span></li>
+              <li><span class="check">📍</span><span><strong>地址：</strong>高雄市鳳山區保泰路129號</span></li>
+            </ul>
+            <div class="contact-actions">
+              <a class="btn primary" href="https://lin.ee/kFbT6Zs" target="_blank" rel="noreferrer">加入 LINE</a>
+              <a class="btn secondary" href="tel:07-7712000">直接撥打</a>
+            </div>
+          </article>
+
+          <article class="map-card">
+            <p>地圖位置</p>
+            <iframe
+              title="順利分期地圖"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.347083496693!2d120.3576983154021!3d22.62850898516014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1b8e6d7e7e7b%3A0x7f1e0b7f8e9d0a1!2sKaohsiung%20City%2C%20Fengshan%20District%2C%20129!5e0!3m2!1szh-TW!2stw!4v1634567890123!5m2!1szh-TW!2stw">
+            </iframe>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© 2026 順利分期. All Rights Reserved.</div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-  const fallbackPrices = {
-    date: "2025.9.20 10:00",
-    "黃金條塊": "13630",
-    "黃金條塊回收": "12980",
-    "飾金回收": "12980",
-    "白金回收": "4600",
-    "白銀條塊回收": "131",
-    "22K": "10513",
-    "18K": "7268",
-    "14K": "5192",
-    "10K": "4153"
-  };
-
-  // 抓取 GoldLegend 金價
-  async function fetchGoldPrices() {
-    const container = document.getElementById("gold-prices");
-    try {
-      const proxyUrl =
-        "https://api.allorigins.win/get?url=" +
-        encodeURIComponent("https://www.goldlegend.com/tw/price");
-      const resp = await fetch(proxyUrl);
-      const data = await resp.json();
-      const html = data.contents;
-
-      const sell = html.match(/賣出<\/td>\s*<td[^>]*>(\d+)/)?.[1];
-      const buy = html.match(/買進<\/td>\s*<td[^>]*>(\d+)/)?.[1];
-      const recycle = html.match(/條塊回收<\/td>\s*<td[^>]*>(\d+)/)?.[1];
-      const jewelry = html.match(/飾金回收<\/td>\s*<td[^>]*>(\d+)/)?.[1];
-      const update = html.match(/更新時間：([^<]+)/)?.[1];
-
-      const prices = {
-        date: update || new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }),
-        "黃金條塊": sell || fallbackPrices["黃金條塊"],
-        "黃金條塊回收": recycle || fallbackPrices["黃金條塊回收"],
-        "飾金回收": jewelry || fallbackPrices["飾金回收"],
-        "白金回收": fallbackPrices["白金回收"],
-        "白銀條塊回收": fallbackPrices["白銀條塊回收"],
-        "22K": fallbackPrices["22K"],
-        "18K": fallbackPrices["18K"],
-        "14K": fallbackPrices["14K"],
-        "10K": fallbackPrices["10K"]
-      };
-
-      let tableHTML = `<div class='overflow-x-auto'>
-        <table class='table-auto w-full border border-gray-200 text-sm text-gray-700'>
-          <thead class='bg-yellow-100'>
-            <tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr>
-          </thead>
-          <tbody>
-          ${Object.entries(prices).filter(([k]) => k !== "date").map(
-            ([key, val]) => `
-            <tr class='hover:bg-gray-50'>
-              <td class='px-4 py-2 border text-center'>${key}</td>
-              <td class='px-4 py-2 border text-center font-medium'>${val}</td>
-            </tr>`
-          ).join("")}
-          </tbody>
-        </table>
-      </div>
-      <p class='text-center text-xs text-gray-500 mt-2'>更新時間：${prices.date}</p>`;
-      container.innerHTML = tableHTML;
-
-    } catch (error) {
-      console.error("金價載入失敗：", error);
-      let tableHTML = `<div class='overflow-x-auto'>
-        <table class='table-auto w-full border border-gray-200 text-sm text-gray-700'>
-          <thead class='bg-yellow-100'>
-            <tr><th class='px-4 py-2 border'>項目</th><th class='px-4 py-2 border'>每錢價格</th></tr>
-          </thead>
-          <tbody>
-          ${Object.entries(fallbackPrices).filter(([k]) => k !== "date").map(
-            ([key, val]) => `
-            <tr class='hover:bg-gray-50'>
-              <td class='px-4 py-2 border text-center'>${key}</td>
-              <td class='px-4 py-2 border text-center font-medium'>${val}</td>
-            </tr>`
-          ).join("")}
-          </tbody>
-        </table>
-      </div>
-      <p class='text-center text-xs text-gray-500 mt-2'>更新時間：${fallbackPrices.date}</p>`;
-      container.innerHTML = tableHTML;
-    }
-  }
-  fetchGoldPrices();
-  setInterval(fetchGoldPrices, 30 * 60 * 1000); // 每30分鐘更新
-
-  function copyGoldPriceLink() {
-    navigator.clipboard.writeText("https://andy19841011.github.io/shunli-fenqi/")
-      .then(() => alert("已複製連結，可以貼到任何地方！"))
-      .catch(() => alert("複製失敗，請手動複製網址"));
-  }
-
-  // RSS 新聞
-  const RSS_SOURCES = {
-    hot: "https://udn.com/rssfeed/news/2",
-    focus: "https://www.cna.com.tw/rss.aspx?Type=2",
-    latest: "https://udn.com/rssfeed/news/1"
-  };
-
-  async function fetchRSS(rssUrl) {
-    const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    const parser = new DOMParser();
-    return parser.parseFromString(data.contents, "application/xml");
-  }
-
-  async function loadNews(type = "hot") {
-    const container = document.getElementById("news-box");
-    container.innerHTML = "<p class='text-center text-gray-600 mb-4'>載入中...</p>";
-    try {
-      const xml = await fetchRSS(RSS_SOURCES[type]);
-      const items = xml.querySelectorAll("item");
-      let html = "<ul class='divide-y divide-gray-200'>";
-      items.forEach((item, index) => {
-        if (index < 5) {
-          const title = item.querySelector("title").textContent;
-          const link = item.querySelector("link").textContent;
-          html += `<li class='py-2'><a href="${link}" target="_blank" class="text-blue-600 hover:underline">${title}</a></li>`;
-        }
-      });
-      html += "</ul>";
-      container.innerHTML = html;
-    } catch (err) {
-      container.innerHTML = "<p class='text-center text-red-500'>新聞載入失敗，請稍後再試。</p>";
-    }
-  }
-  loadNews("hot");
-  </script>
 </body>
 </html>
