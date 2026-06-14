@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="60" x2="1120" y2="580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8EF"/>
+      <stop offset="0.52" stop-color="#F2E2CF"/>
+      <stop offset="1" stop-color="#D8B48A"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="160" y1="130" x2="1040" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A475E"/>
+      <stop offset="1" stop-color="#8E5B2D"/>
+    </linearGradient>
+    <filter id="shadow" x="120" y="84" width="960" height="462" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.173 0 0 0 0 0.124 0 0 0 0 0.066 0 0 0 0.18 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="150" r="180" fill="#FFFFFF" fill-opacity="0.22"/>
+  <circle cx="180" cy="520" r="170" fill="#FFFFFF" fill-opacity="0.14"/>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="84" width="960" height="462" rx="40" fill="url(#panel)"/>
+  </g>
+
+  <rect x="170" y="138" width="86" height="86" rx="26" fill="white" fill-opacity="0.18"/>
+  <circle cx="213" cy="181" r="22" stroke="#F5E8D8" stroke-width="4"/>
+  <circle cx="213" cy="181" r="10" fill="#F5E8D8"/>
+
+  <text x="170" y="286" fill="#FFF9F0" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="34" font-weight="700" letter-spacing="3">順利分期</text>
+  <text x="170" y="372" fill="#FFFFFF" font-family="Georgia, 'Noto Serif TC', serif" font-size="68" font-weight="700" letter-spacing="-2">高雄無卡分期</text>
+  <text x="170" y="446" fill="#FFFFFF" font-family="Georgia, 'Noto Serif TC', serif" font-size="68" font-weight="700" letter-spacing="-2">貸款與收購服務</text>
+
+  <text x="170" y="504" fill="#F4EBDD" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="28" font-weight="500">
+    <tspan x="170" dy="0">無卡分期 ． 房屋土地貸款 ． 黃金鑽石名錶收購 ． 汽機車分期</tspan>
+  </text>
+
+  <g transform="translate(170 528)">
+    <rect x="0" y="0" width="132" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.16"/>
+    <rect x="148" y="0" width="122" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.16"/>
+    <rect x="286" y="0" width="198" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.16"/>
+    <rect x="500" y="0" width="150" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.16"/>
+
+    <text x="66" y="26" text-anchor="middle" fill="#FFF9F0" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700">透明</text>
+    <text x="209" y="26" text-anchor="middle" fill="#FFF9F0" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700">清楚</text>
+    <text x="385" y="26" text-anchor="middle" fill="#FFF9F0" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700">高雄在地</text>
+    <text x="575" y="26" text-anchor="middle" fill="#FFF9F0" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="22" font-weight="700">快速回覆</text>
+  </g>
+</svg>

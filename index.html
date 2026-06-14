@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="順利分期提供無卡分期、房屋土地貸款、黃金鑽石名錶收購、汽機車分期等服務，重視效率、透明與安心。">
-  <title>順利分期 | 高雄資金週轉專家</title>
+  <title>順利分期｜高雄無卡分期、貸款與收購服務</title>
+  <meta name="description" content="順利分期提供高雄無卡分期、房屋土地貸款、黃金鑽石名錶收購與汽機車分期服務。重視效率、透明與清楚溝通，歡迎立即諮詢。">
+  <link rel="canonical" href="https://andy19841011.github.io/shunli-fenqi/">
+  <meta name="theme-color" content="#8e5b2d">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://andy19841011.github.io/shunli-fenqi/">
+  <meta property="og:title" content="順利分期｜高雄無卡分期、貸款與收購服務">
+  <meta property="og:description" content="高雄在地資金週轉與收購服務，提供無卡分期、房屋土地貸款、黃金鑽石名錶收購與汽機車分期。">
+  <meta property="og:image" content="https://andy19841011.github.io/shunli-fenqi/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="順利分期｜高雄無卡分期、貸款與收購服務">
+  <meta name="twitter:description" content="高雄在地資金週轉與收購服務，提供無卡分期、房屋土地貸款、黃金鑽石名錶收購與汽機車分期。">
+  <meta name="twitter:image" content="https://andy19841011.github.io/shunli-fenqi/og-image.svg">
   <style>
     :root {
-      --bg: #f4efe6;
-      --bg-soft: #fffaf2;
-      --surface: rgba(255, 255, 255, 0.84);
-      --surface-strong: #ffffff;
-      --text: #1d2430;
-      --muted: #5f6b7a;
-      --line: rgba(29, 36, 48, 0.12);
+      --bg: #f3ede5;
+      --bg-soft: #fffaf3;
+      --panel: rgba(255, 255, 255, 0.75);
+      --panel-strong: #fffdf9;
+      --text: #1f2732;
+      --muted: #667282;
+      --line: rgba(31, 39, 50, 0.12);
       --brand: #8e5b2d;
-      --brand-2: #c98d4d;
-      --brand-3: #2d4b5f;
-      --shadow: 0 20px 60px rgba(39, 29, 14, 0.14);
-      --radius-xl: 32px;
+      --brand-2: #c89255;
+      --brand-3: #2a475e;
+      --shadow: 0 24px 70px rgba(32, 24, 14, 0.12);
+      --radius-xl: 34px;
       --radius-lg: 24px;
       --radius-md: 18px;
-      --radius-sm: 14px;
-      --max: 1160px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
@@ -30,29 +42,29 @@
     body {
       margin: 0;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(201, 141, 77, 0.24), transparent 30%),
-        radial-gradient(circle at top right, rgba(45, 75, 95, 0.14), transparent 28%),
-        linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
       font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(200, 146, 85, 0.28), transparent 24%),
+        radial-gradient(circle at 85% 0%, rgba(42, 71, 94, 0.14), transparent 22%),
+        linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
+      line-height: 1.65;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
 
     .wrap {
-      width: min(100% - 32px, var(--max));
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
       backdrop-filter: blur(16px);
-      background: rgba(255, 250, 242, 0.72);
-      border-bottom: 1px solid rgba(29, 36, 48, 0.08);
+      background: rgba(255, 250, 243, 0.76);
+      border-bottom: 1px solid rgba(31, 39, 50, 0.08);
     }
 
     .nav {
@@ -68,73 +80,93 @@
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
       color: #fff;
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 10px 30px rgba(142, 91, 45, 0.28);
+      box-shadow: 0 12px 28px rgba(142, 91, 45, 0.26);
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
       justify-content: flex-end;
+      gap: 10px;
     }
 
     .nav-links a {
       padding: 10px 14px;
       border-radius: 999px;
       color: var(--muted);
-      transition: 0.2s ease;
+      transition: 0.18s ease;
     }
 
     .nav-links a:hover {
       color: var(--text);
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
     }
 
     .hero {
-      padding: 52px 0 22px;
+      padding: 48px 0 22px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
       align-items: stretch;
     }
 
-    .hero-card, .panel, .feature, .stat, .step, .contact-card, .map-card {
-      background: var(--surface);
+    .card,
+    .service,
+    .contact-card,
+    .map-card,
+    .info-chip {
+      background: var(--panel);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
 
     .hero-card {
-      border-radius: var(--radius-xl);
-      padding: 34px;
       position: relative;
       overflow: hidden;
+      padding: 36px;
+      border-radius: var(--radius-xl);
       min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 250, 243, 0.78)),
+        var(--panel);
     }
 
+    .hero-card::before,
     .hero-card::after {
       content: "";
       position: absolute;
-      inset: auto -120px -120px auto;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 260px;
+      height: 260px;
+      right: -130px;
+      top: -90px;
+      background: radial-gradient(circle, rgba(200, 146, 85, 0.22), transparent 70%);
+    }
+
+    .hero-card::after {
       width: 280px;
       height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201, 141, 77, 0.26), transparent 66%);
-      pointer-events: none;
+      right: -120px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(42, 71, 94, 0.16), transparent 72%);
     }
 
     .eyebrow {
@@ -143,9 +175,9 @@
       gap: 8px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(142, 91, 45, 0.1);
       color: var(--brand);
-      font-size: 0.92rem;
+      background: rgba(142, 91, 45, 0.1);
+      font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -154,21 +186,22 @@
     h1, h2, h3, p { margin: 0; }
 
     h1 {
-      font-size: clamp(2.3rem, 5vw, 4.7rem);
-      line-height: 1.06;
-      letter-spacing: -0.04em;
       margin-top: 16px;
-      max-width: 12ch;
+      max-width: 11.5ch;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
     }
 
     .lede {
-      margin-top: 18px;
       max-width: 62ch;
+      margin-top: 18px;
       color: var(--muted);
       font-size: 1.06rem;
     }
 
-    .hero-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -183,22 +216,22 @@
       padding: 14px 18px;
       border-radius: 999px;
       font-weight: 700;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
       border: 1px solid transparent;
     }
 
     .btn:hover { transform: translateY(-1px); }
 
     .btn.primary {
-      color: white;
+      color: #fff;
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 14px 30px rgba(142, 91, 45, 0.24);
+      box-shadow: 0 14px 30px rgba(142, 91, 45, 0.22);
     }
 
     .btn.secondary {
-      background: rgba(255, 255, 255, 0.78);
-      border-color: rgba(29, 36, 48, 0.09);
       color: var(--text);
+      background: rgba(255, 255, 255, 0.8);
+      border-color: rgba(31, 39, 50, 0.1);
     }
 
     .hero-meta {
@@ -208,116 +241,85 @@
       margin-top: 28px;
     }
 
-    .stat {
+    .info-chip {
       border-radius: 20px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.72);
+      padding: 16px 16px 15px;
+      background: rgba(255, 255, 255, 0.76);
     }
 
-    .stat strong {
+    .info-chip strong {
       display: block;
-      font-size: 1.55rem;
+      font-size: 1.38rem;
       letter-spacing: -0.03em;
     }
 
-    .stat span {
+    .info-chip span {
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: 0.92rem;
     }
 
-    .hero-aside {
+    .side {
       display: grid;
       gap: 16px;
+      align-content: start;
     }
 
     .panel {
       border-radius: var(--radius-xl);
       padding: 24px;
-      background: rgba(255, 250, 242, 0.78);
+      background: rgba(255, 251, 246, 0.84);
     }
 
     .panel h2 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
+      font-size: 1.16rem;
+      margin-bottom: 14px;
     }
 
-    .checklist {
+    .list {
       display: grid;
-      gap: 10px;
-      margin-top: 16px;
-      color: var(--muted);
-      padding: 0;
+      gap: 12px;
       list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .checklist li {
+    .list li {
       display: flex;
-      align-items: flex-start;
       gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
     }
 
-    .check {
+    .tick {
       width: 22px;
       height: 22px;
       flex: 0 0 22px;
-      border-radius: 50%;
+      border-radius: 999px;
       display: grid;
       place-items: center;
-      background: rgba(142, 91, 45, 0.12);
       color: var(--brand);
-      font-size: 0.85rem;
+      background: rgba(142, 91, 45, 0.12);
+      font-size: 0.82rem;
       margin-top: 2px;
     }
 
-    .panel-highlight {
-      border-radius: var(--radius-xl);
-      padding: 24px;
-      color: white;
-      background:
-        linear-gradient(135deg, rgba(45, 75, 95, 0.96), rgba(142, 91, 45, 0.92)),
-        linear-gradient(135deg, #2d4b5f, #8e5b2d);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .panel-highlight::after {
-      content: "";
-      position: absolute;
-      inset: auto -70px -90px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .panel-highlight small {
-      display: inline-block;
-      margin-bottom: 10px;
-      opacity: 0.9;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .panel-highlight p {
-      color: rgba(255, 255, 255, 0.86);
-      margin-top: 10px;
-    }
-
     .section {
-      padding: 34px 0;
+      padding: 30px 0;
     }
 
     .section-head {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       align-items: end;
       margin-bottom: 18px;
     }
 
     .section-head h2 {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      line-height: 1.15;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }
 
     .section-head p {
@@ -331,75 +333,46 @@
       gap: 16px;
     }
 
-    .grid-3 {
+    .grid-2 {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .feature, .step, .contact-card, .map-card {
+    .service,
+    .contact-card,
+    .map-card {
       border-radius: var(--radius-lg);
       padding: 22px;
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.77);
     }
 
-    .feature h3, .step h3 {
-      margin: 14px 0 10px;
-      font-size: 1.08rem;
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
+    .service .icon {
+      width: 44px;
+      height: 44px;
       border-radius: 16px;
       display: grid;
       place-items: center;
       background: rgba(142, 91, 45, 0.1);
       color: var(--brand);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
 
-    .feature p, .step p, .contact-card p, .contact-card li, .map-card p {
+    .service h3 {
+      margin: 14px 0 10px;
+      font-size: 1.06rem;
+    }
+
+    .service p,
+    .contact-card p,
+    .contact-card li,
+    .map-card p {
       color: var(--muted);
-    }
-
-    .story {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .story .feature {
-      min-height: 100%;
-    }
-
-    .quote {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--text);
-      margin-top: 12px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .badge {
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(45, 75, 95, 0.08);
-      color: var(--brand-3);
-      font-size: 0.92rem;
-      font-weight: 600;
     }
 
     .contact-layout {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 0.92fr 1.08fr;
       gap: 16px;
       align-items: start;
     }
@@ -418,9 +391,7 @@
       align-items: flex-start;
     }
 
-    .contact-card strong {
-      color: var(--text);
-    }
+    .contact-card strong { color: var(--text); }
 
     .contact-actions {
       display: flex;
@@ -431,26 +402,24 @@
 
     .map-card iframe {
       width: 100%;
-      height: 100%;
       min-height: 360px;
       border: 0;
       border-radius: 18px;
       margin-top: 16px;
-      filter: saturate(0.92) contrast(1.02);
+      filter: saturate(0.96) contrast(1.02);
     }
 
     footer {
-      padding: 22px 0 38px;
+      padding: 24px 0 38px;
       color: var(--muted);
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1040px) {
       .hero-grid,
       .grid-4,
-      .grid-3,
-      .story,
+      .grid-2,
       .contact-layout {
         grid-template-columns: 1fr;
       }
@@ -464,18 +433,23 @@
     }
 
     @media (max-width: 720px) {
-      .wrap { width: min(100% - 20px, var(--max)); }
+      .wrap { width: min(calc(100% - 20px), var(--max)); }
       .nav {
         flex-direction: column;
         align-items: start;
       }
       .hero { padding-top: 30px; }
-      .hero-card, .panel, .feature, .step, .contact-card, .map-card { border-radius: 22px; }
-      .hero-card, .panel-highlight, .panel { padding: 22px; }
+      .hero-card,
+      .panel,
+      .service,
+      .contact-card,
+      .map-card { border-radius: 22px; }
+      .hero-card { padding: 24px; }
       .hero-meta { grid-template-columns: 1fr; }
       .nav-links { justify-content: flex-start; }
+      .actions,
+      .contact-actions { display: grid; }
       .btn { width: 100%; }
-      .hero-actions, .contact-actions { display: grid; }
       .map-card iframe { min-height: 280px; }
     }
   </style>
@@ -490,10 +464,8 @@
           <small style="color: var(--muted); font-weight: 500;">高雄在地資金週轉</small>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="主要導覽">
         <a href="#services">服務項目</a>
-        <a href="#advantages">合作優勢</a>
-        <a href="#process">辦理流程</a>
         <a href="#contact">聯絡我們</a>
       </nav>
     </div>
@@ -503,46 +475,41 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <article class="hero-card">
-          <span class="eyebrow">Fast approval / Transparent / Local service</span>
-          <h1>把資金問題，交給更有秩序的解法</h1>
+          <span class="eyebrow">Transparent / Local / Fast response</span>
+          <h1>讓資金需求，回到清楚可談的狀態</h1>
           <p class="lede">
-            提供無卡分期、房屋土地貸款、黃金鑽石名錶收購、汽機車分期等服務。
-            我們重視溝通效率、方案清楚、流程簡單，讓你可以更安心地往下一步走。
+            順利分期提供高雄在地的無卡分期、房屋土地貸款、黃金鑽石名錶收購與汽機車分期服務。
+            內容簡單、流程清楚、聯絡直接，讓你更快找到適合的方案。
           </p>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="tel:07-7712000">立即來電諮詢</a>
-            <a class="btn secondary" href="#contact">看聯絡方式</a>
+          <div class="actions">
+            <a class="btn primary" href="tel:07-7712000">立即來電</a>
+            <a class="btn secondary" href="https://lin.ee/kFbT6Zs" target="_blank" rel="noreferrer">加入 LINE</a>
           </div>
 
           <div class="hero-meta">
-            <div class="stat">
-              <strong>4 大服務</strong>
+            <div class="info-chip">
+              <strong>4 項服務</strong>
               <span>分期、貸款、收購、車輛方案</span>
             </div>
-            <div class="stat">
-              <strong>簡單流程</strong>
-              <span>少繞路，重點明確好理解</span>
+            <div class="info-chip">
+              <strong>少一點話術</strong>
+              <span>直接說明可行方式與步驟</span>
             </div>
-            <div class="stat">
+            <div class="info-chip">
               <strong>高雄在地</strong>
-              <span>可以直接聯繫，溝通更即時</span>
+              <span>聯絡方便，回覆更即時</span>
             </div>
           </div>
         </article>
 
-        <aside class="hero-aside">
-          <div class="panel-highlight">
-            <small>About</small>
-            <h2>不是把資訊塞滿，而是把重點說清楚</h2>
-            <p>這版把畫面改成更乾淨的單頁結構，先讓訪客快速看懂你能提供什麼，再把聯絡入口放到最明顯的位置。</p>
-          </div>
+        <aside class="side">
           <div class="panel">
-            <h2>我們最在意的三件事</h2>
-            <ul class="checklist">
-              <li><span class="check">✓</span><span>說明清楚，不把流程包裝得太複雜。</span></li>
-              <li><span class="check">✓</span><span>重視速度與回覆，讓客戶少等待。</span></li>
-              <li><span class="check">✓</span><span>保留足夠彈性，依照需求安排方案。</span></li>
+            <h2>你可以直接了解的重點</h2>
+            <ul class="list">
+              <li><span class="tick">✓</span><span>不需要看一大串說明，先從需求開始。</span></li>
+              <li><span class="tick">✓</span><span>提供清楚的聯絡入口，少走冤枉路。</span></li>
+              <li><span class="tick">✓</span><span>資訊精簡，避免與主題無關的內容。</span></li>
             </ul>
           </div>
         </aside>
@@ -554,105 +521,30 @@
         <div class="section-head">
           <div>
             <h2>服務項目</h2>
-            <p>把原本散落的內容整理成更容易掃描的四個服務卡片，讓重點一眼看懂。</p>
+            <p>四項主要服務，直接對應你的資金需求與收購需求，方便快速找到適合的入口。</p>
           </div>
         </div>
 
         <div class="grid-4">
-          <article class="feature">
-            <div class="icon">📱</div>
+          <article class="service">
+            <div class="icon">卡</div>
             <h3>無卡分期</h3>
-            <p>不一定需要信用卡，也能評估分期需求，適合想先把資金壓力降下來的人。</p>
+            <p>評估分期需求與條件，提供更彈性的安排方式。</p>
           </article>
-          <article class="feature">
-            <div class="icon">🏠</div>
+          <article class="service">
+            <div class="icon">屋</div>
             <h3>房屋土地貸款</h3>
-            <p>依照不動產條件規劃適合的資金安排，說明方式盡量直白，方便快速理解。</p>
+            <p>依照不動產條件協助規劃，說明更清楚直接。</p>
           </article>
-          <article class="feature">
-            <div class="icon">💎</div>
+          <article class="service">
+            <div class="icon">物</div>
             <h3>黃金鑽石名錶收購</h3>
-            <p>針對黃金、鑽石、名錶提供收購與估價服務，重視現場評估與透明報價。</p>
+            <p>提供估價與收購服務，重視透明與現場確認。</p>
           </article>
-          <article class="feature">
-            <div class="icon">🚗</div>
+          <article class="service">
+            <div class="icon">車</div>
             <h3>汽機車分期</h3>
-            <p>新車、中古車或機車分期都可討論，流程更彈性，協助你找到合適方式。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="advantages" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>合作優勢</h2>
-            <p>把「可信任」做成畫面的一部分，而不是只放在一句口號裡。</p>
-          </div>
-        </div>
-
-        <div class="story">
-          <article class="feature">
-            <div class="icon">◎</div>
-            <h3>更像一個可靠的入口</h3>
-            <p class="quote">
-              這份設計把網站從「資訊很多」改成「重點很清楚」的狀態。
-              首先讓人知道你做什麼，再讓他很容易找到下一步。
-            </p>
-            <div class="badge-row">
-              <span class="badge">資訊清楚</span>
-              <span class="badge">版面乾淨</span>
-              <span class="badge">行動裝置友善</span>
-              <span class="badge">聯絡入口明顯</span>
-            </div>
-          </article>
-
-          <div class="grid-3">
-            <article class="step">
-              <div class="icon">1</div>
-              <h3>先說需求</h3>
-              <p>用最短的方式描述你的狀況，讓對話從第一句就對焦。</p>
-            </article>
-            <article class="step">
-              <div class="icon">2</div>
-              <h3>再看條件</h3>
-              <p>根據狀況協助評估，說明方式直接，減少來回猜測。</p>
-            </article>
-            <article class="step">
-              <div class="icon">3</div>
-              <h3>安排下一步</h3>
-              <p>確認方式後，再決定最適合你的處理流程與時間。</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>辦理流程</h2>
-            <p>簡化成三步，讓使用者一看就知道怎麼開始，不需要先讀完整頁才懂。</p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <article class="step">
-            <div class="icon">A</div>
-            <h3>聯絡諮詢</h3>
-            <p>先用電話或 LINE 聯絡，說明你目前的需求與想了解的方向。</p>
-          </article>
-          <article class="step">
-            <div class="icon">B</div>
-            <h3>資料評估</h3>
-            <p>依照你提供的資訊，協助判斷可行方案與適合的安排。</p>
-          </article>
-          <article class="step">
-            <div class="icon">C</div>
-            <h3>完成辦理</h3>
-            <p>確認內容後進入下一步，讓流程保持清楚、快速、好溝通。</p>
+            <p>新車、中古車與機車方案都可洽詢，流程簡潔。</p>
           </article>
         </div>
       </div>
@@ -663,17 +555,17 @@
         <div class="section-head">
           <div>
             <h2>聯絡我們</h2>
-            <p>把聯絡資訊放在最清楚的位置，讓想詢問的人可以直接找到入口。</p>
+            <p>想詢問時可以直接聯絡，不用在網站裡找不相干的資訊。</p>
           </div>
         </div>
 
         <div class="contact-layout">
           <article class="contact-card">
-            <p style="font-size: 1.1rem; color: var(--text); font-weight: 700;">如果你想先聊聊，直接從這裡開始就可以。</p>
+            <p style="font-size: 1.08rem; color: var(--text); font-weight: 700;">如果你想先問清楚條件，直接從這裡開始。</p>
             <ul>
-              <li><span class="check">☎</span><span><strong>電話：</strong><a href="tel:07-7712000">07-7712000</a></span></li>
-              <li><span class="check">◎</span><span><strong>LINE：</strong><a href="https://lin.ee/kFbT6Zs" target="_blank" rel="noreferrer">https://lin.ee/kFbT6Zs</a></span></li>
-              <li><span class="check">📍</span><span><strong>地址：</strong>高雄市鳳山區保泰路129號</span></li>
+              <li><span class="tick">☎</span><span><strong>電話：</strong><a href="tel:07-7712000">07-7712000</a></span></li>
+              <li><span class="tick">◎</span><span><strong>LINE：</strong><a href="https://lin.ee/kFbT6Zs" target="_blank" rel="noreferrer">https://lin.ee/kFbT6Zs</a></span></li>
+              <li><span class="tick">地</span><span><strong>地址：</strong>高雄市鳳山區保泰路129號</span></li>
             </ul>
             <div class="contact-actions">
               <a class="btn primary" href="https://lin.ee/kFbT6Zs" target="_blank" rel="noreferrer">加入 LINE</a>
@@ -696,9 +588,7 @@
   </main>
 
   <footer>
-    <div class="wrap">
-      <div>© 2026 順利分期. All Rights Reserved.</div>
-    </div>
+    <div class="wrap">© 2026 順利分期. All Rights Reserved.</div>
   </footer>
 </body>
 </html>
