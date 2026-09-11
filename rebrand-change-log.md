@@ -140,3 +140,11 @@
 - 首頁 title、description、canonical、OG、Twitter、JSON-LD、favicon、robots、sitemap 與 heading hierarchy 已確認；首頁金融舊關鍵字為 0。
 - Final RC 判定：`RELEASE_CANDIDATE_WITH_STATIC_HERO`。尚缺 MP4、WebP poster、正方形 favicon、Facebook、Instagram、Email，均不阻擋上線。
 - 本次未 merge `main`，未部署正式站。
+
+## 正式站發布紀錄
+
+- 原正式站已建立並推送備份 tag：`backup/pre-ai-release-20260911`。
+- `rebrand/shunli-ai-studio` 已提交為 `c7ac3bc`，並 fast-forward merge 至 `main`。
+- `main` 已推送至 GitHub，GitHub Pages 已更新至「順利 AI 製作」版本。
+- 正式網址：`https://andy19841011.github.io/shunli-fenqi/`。
+- 正式網址檢查：首頁標題、CSS、JavaScript、Logo、favicon、OG image、Hero Poster、robots.txt、sitemap.xml 均回應 200；初始 YouTube iframe 為 0。
